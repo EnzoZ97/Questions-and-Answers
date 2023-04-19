@@ -1,0 +1,10 @@
+@use '../../Styles/Variables.scss' as v;
+
+.Navbar{
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+    font-family: v.$title-font-family;
+    color: white;
+    background-color: v.$main-color;
+}

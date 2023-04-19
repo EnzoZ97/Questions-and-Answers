@@ -1,0 +1,153 @@
+@use '../../Styles/Variables.scss' as v;
+@import '../../Styles/Responsive/Responsive.scss';
+
+.ListofQuestions{
+    width: 900px;
+    margin: auto;
+    background-color: v.$background;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding: 25px 0px;
+    
+    @include tablet{
+        width: 100%;  
+    }
+
+    .container{    
+        display: flex;
+        overflow: hidden;
+
+        .content{
+            max-width: 900px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all .4s ease-in-out;
+
+            @include tablet{
+                width: 100%;
+                margin-right: 400px;
+            }
+    
+            h1{
+                width: 1025px;
+                text-align: center;
+
+                @include tablet{
+                    max-width: 900px;
+                    font-size: 1.3rem;
+                }
+
+                @include mobile{
+                    font-size: 1.1rem;
+                }
+                
+            }
+    
+            .answers{
+                margin-top: 25px;
+                padding: 20px;
+                height: 300px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+
+                @include tablet{
+                    width: 100%;
+                }
+    
+                .answer-box{
+                    width: 450px;
+                    text-align: center;
+                    padding: 10px 0px;
+                    border-radius: 5px;
+                    border: 2px solid v.$main-color;
+                    cursor: pointer;
+                    transition: all .1s ease-in-out;
+                    p{
+                        font-family: v.$answer-font-family;
+                        transition: all .2s ease-in-out; 
+                        font-size: 1.2rem;
+                        @include mobile{
+                            font-size: .9rem;
+                        }
+                    }    
+                    @include tablet{
+                        width: 100%;
+                    }
+                    
+                }
+    
+                .answer-box:hover{
+                    background-color: v.$selected;
+    
+                    p{
+                        transform: scale(1.2);
+                    }
+                }
+    
+                .correct-answer{
+                    background-color: v.$correct-color;
+
+                    &:hover{
+                        background-color: v.$correct-color;
+                    }
+                }
+
+                .incorrect-answer{
+                    background-color: v.$incorrect-color;
+                    &:hover{
+                        background-color: v.$incorrect-color;
+                    }
+                }
+
+                .disabled-answer{
+                    pointer-events:none;
+                }
+            }
+        }
+    }
+
+    .box-button{
+        width: 100%;
+        text-align: center;
+        margin-top: 25px;
+
+        button{
+            background-color: v.$selected;        
+            width: 200px;
+            padding: 10px 0px;
+            border: none;
+            border-radius: 3px;   
+            font-size: 1.2rem;
+            cursor: pointer;
+
+            @include mobile{
+                width: 150px; 
+            }
+        }
+
+        button:hover{
+            filter: brightness(.8);
+        }
+        button:active{
+            filter: brightness(1);
+        }
+
+        button:disabled,
+        button[disbled]{
+            background-color: gray;
+            cursor: auto;
+        }
+
+        button:disabled:hover,
+        button[disbled]{
+            filter: brightness(1);
+        }
+    }
+
+}
+
